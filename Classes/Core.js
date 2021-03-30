@@ -6,6 +6,7 @@ class Core {
   #sound;
   #ai;
   #userInteraction;
+  #render;
 
 
   constructor() {
@@ -14,6 +15,7 @@ class Core {
     this.#sound = new Sound();
     this.#ai = new AI();
     this.#userInteraction = new UserInteraction();
+    this.#render = new Render();
   }
 
   set_world(world){
@@ -28,6 +30,7 @@ class Core {
   game_loop(core){
       core.#logic.handler(core.#world);
       core.#physics.handler(core.#world);
+      core.#render.handler(core.#world);
       core.#sound.handler(core.#world);
       core.#ai.handler(core.#world);
 
