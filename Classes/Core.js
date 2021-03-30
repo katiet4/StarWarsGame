@@ -9,11 +9,6 @@ class Core {
 
 
   constructor() {
-
-  }
-
-  set_world(world){
-    this.#world = world;
     this.#logic = new Logic();
     this.#physics = new Physics();
     this.#sound = new Sound();
@@ -21,26 +16,31 @@ class Core {
     this.#userInteraction = new UserInteraction();
   }
 
+  set_world(world){
 
-
-  // Цикл который все обрабатывает.
-  game_loop(){
-
-    #logic.handler(#world);
-    #physics.handler(#world);
-    #sound.handler(#world);
-    #ai.handler(#world);
-
-    // Получаем массив событий.
-    let events = #userInteraction.handler();
-
-    // Вызываем функцию update
-    update(events, this.#world);
+    this.#world = world;
 
   }
 
-  start_game(){
-    var game = setInterval(game_loop, 33);
+
+
+  // Цикл который все обрабатывает.
+  game_loop(core){
+      core.#logic.handler(core.#world);
+      core.#physics.handler(core.#world);
+      core.#sound.handler(core.#world);
+      core.#ai.handler(core.#world);
+
+    // Получаем массив событий.
+    let events = core.#userInteraction.handler();
+
+    // Вызываем функцию update
+    update(events, core.#world);
+
+  }
+
+  start_game(core){
+    setInterval(this.game_loop, 33, core);
   }
 
 }
