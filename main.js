@@ -10,7 +10,7 @@ function start(){
 
   // Создаем объект мир и наполняем его объектами.
   let world = new World();
-  world.set_player({name:"Rifat", age:0});
+  world.set_player();
   //
   // // в Core передаем объект мир
   let api = new EngineAPI();

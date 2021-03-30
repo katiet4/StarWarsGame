@@ -2,4 +2,7 @@ class UserInteraction {
   constructor() {
 
   }
+  handler(){
+
+  }
 }

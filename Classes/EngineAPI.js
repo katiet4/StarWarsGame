@@ -6,13 +6,11 @@ class EngineAPI {
     this.#core = new Core();
   }
 
-  function set_world(world){
-    test();
+  set_world(world){
     this.#core.set_world(world);
   }
 
-  function start_game(){
-    test();
+  start_game(){
       this.#core.start_game(world);
   }
 

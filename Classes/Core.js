@@ -8,9 +8,11 @@ class Core {
   #userInteraction;
 
 
-  constructor() {}
+  constructor() {
 
-  function set_world(world){
+  }
+
+  set_world(world){
     this.#world = world;
     this.#logic = new Logic();
     this.#physics = new Physics();
@@ -22,7 +24,7 @@ class Core {
 
 
   // Цикл который все обрабатывает.
-  function game_loop(){
+  game_loop(){
 
     #logic.handler(#world);
     #physics.handler(#world);
@@ -34,11 +36,10 @@ class Core {
 
     // Вызываем функцию update
     update(events, this.#world);
-    test();
 
   }
 
-  function start_game(){
+  start_game(){
     var game = setInterval(game_loop, 33);
   }
 
