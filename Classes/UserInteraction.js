@@ -1,18 +1,70 @@
 
 class UserInteraction {
-  static events;
+  //left-37 up-38 right-39 down-40 space-32
+  static events=[0,0,0,0,0];
   constructor() {
 
   }
   static handler(){
-    let eventsForSend = this.events;
-    this.events=[];
-    return eventsForSend;
+    return this.events;
   }
 
 }
 
 document.addEventListener('keydown', handlerForDown);//left-37 up-38 right-39 down-40
+document.addEventListener('keyup', handlerForUp);//left-37 up-38 right-39 down-40
+
 function handlerForDown(event){
-    UserInteraction.events.push(event.keyCode);
+    switch (event.keyCode) {
+        case 32:
+            UserInteraction.events[4] = 32;
+        break;
+        case 37:
+          if(UserInteraction.events[2] == 0){
+            UserInteraction.events[0] = 37;
+          }
+        break;
+
+        case 38:
+          if(UserInteraction.events[3] == 0){
+            UserInteraction.events[1] = 38;
+          }
+        break;
+
+        case 39:
+        if(UserInteraction.events[0] == 0){
+          UserInteraction.events[2] = 39;
+        }
+
+        break;
+        case 40:
+        if(UserInteraction.events[1] == 0){
+          UserInteraction.events[3] = 40;
+        }
+        break;
+    }
+
+
+}
+
+function handlerForUp(event){
+  switch (event.keyCode) {
+      case 32:
+        UserInteraction.events[4] = 0;
+      break;
+      case 37:
+        UserInteraction.events[0] = 0;
+      break;
+
+      case 38:
+        UserInteraction.events[1] = 0;
+      break;
+
+      case 39:
+        UserInteraction.events[2] = 0;
+      break;
+      case 40:
+        UserInteraction.events[3] = 0;
+      break;
+  }
 }
