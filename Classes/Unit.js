@@ -25,4 +25,13 @@ class Unit {
      return this.#y;
   }
 
+  get Width()
+  {
+    return this.#width;
+  }
+  get Height()
+  {
+    return this.#height;
+  }
+
 }

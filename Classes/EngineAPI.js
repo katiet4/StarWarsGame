@@ -7,8 +7,8 @@ class EngineAPI {
 
   }
 
-  set_world(world){
-      this.#core.set_world(world);
+  set World(world){
+      this.#core.world = world;
   }
 
   start_game(){

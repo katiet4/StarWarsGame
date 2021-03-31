@@ -9,9 +9,15 @@ class Render {
   {
     let canvas = document.getElementById("game");
     let ctx = canvas.getContext("2d");
+    let image = new Image();
 
-    ctx.rect(object.X, object.Y, 100,100);
-    ctx.stroke();
+    image.scr = "Media/test.png";
+
+    ctx.drawImage(image, 0,0, 100, 100);
+
+
+    // ctx.rect(object.X, object.Y, object.Width, object.Height);
+    // ctx.stroke();
   }
 
 }

@@ -18,7 +18,7 @@ class Core {
     this.#render = new Render();
   }
 
-  set_world(world){
+  set world(world){
 
     this.#world = world;
 
