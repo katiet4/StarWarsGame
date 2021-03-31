@@ -14,11 +14,10 @@ class Core {
     this.#physics = new Physics();
     this.#sound = new Sound();
     this.#ai = new AI();
-    this.#userInteraction = new UserInteraction();
     this.#render = new Render();
   }
 
-  set_world(world){
+  set world(world){
 
     this.#world = world;
 
@@ -35,7 +34,8 @@ class Core {
       core.#ai.handler(core.#world);
 
     // Получаем массив событий.
-    let events = core.#userInteraction.handler();
+    let events = UserInteraction.handler();
+    console.log(events);
 
     // Вызываем функцию update
     update(events, core.#world);

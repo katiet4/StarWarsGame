@@ -1,10 +1,14 @@
 class World {
-  name;
+
+  #player;
+
   constructor() {
   }
-  set_player(){
+  set player(value){
+    this.#player = new Player(value);
   }
-  set_name(name){
-    this.name = name;
+  get player()
+  {
+    return this.#player;
   }
 }
