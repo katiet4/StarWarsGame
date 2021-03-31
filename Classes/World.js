@@ -4,7 +4,11 @@ class World {
 
   constructor() {
   }
-  set_player(){
-    this.#player = new Player();
+  set player(value){
+    this.#player = new Player(value);
+  }
+  get player()
+  {
+    return this.#player;
   }
 }
