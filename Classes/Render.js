@@ -1,5 +1,6 @@
 class Render {
-  constructor() {
+  constructor()
+  {
   }
   handler(world){
 
