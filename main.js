@@ -4,7 +4,7 @@ function start(){
 
   // Создаем объект мир и наполняем его объектами.
   let world = new World();
-  world.player = {X: 5, Y: 5};
+  world.player = {x: 5, y: 5, name:'player'};
   console.log(world.player);
 
   // в Core передаем объект мир

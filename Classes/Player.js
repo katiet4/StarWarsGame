@@ -1,7 +1,8 @@
 class Player extends Unit {
+  #name;
   constructor(value) {
-      super.X = value.X;
-      super.Y = value.Y;
+      super(value);
+      this.#name = value.name;
 
       // this.image =   options.image;
       // this.srcRight =  options.srcRight;

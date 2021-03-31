@@ -6,14 +6,23 @@ class Unit {
 #width;
 #height;
 
-  constructor() {
+  constructor(value) {
+    this.#x = value.x;
+    this.#y = value.y;
+    this.#width = value.width;
+    this.#height = value.height;
+    this.#srcPath = value.srcPath;
   }
+
   get X()
   {
     return this.#x;
   }
+
+
   get Y()
   {
      return this.#y;
   }
+
 }
