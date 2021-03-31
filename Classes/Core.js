@@ -36,6 +36,7 @@ class Core {
 
     // Получаем массив событий.
     let events = core.#userInteraction.handler();
+    console.log(events);
 
     // Вызываем функцию update
     update(events, core.#world);
