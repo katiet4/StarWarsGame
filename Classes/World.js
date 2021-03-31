@@ -1,10 +1,10 @@
 class World {
-  name;
+
+  #player;
+
   constructor() {
   }
   set_player(){
-  }
-  set_name(name){
-    this.name = name;
+    this.#player = new Player();
   }
 }

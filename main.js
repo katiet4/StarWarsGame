@@ -8,7 +8,6 @@ function start(){
 
   // Создаем объект мир и наполняем его объектами.
   let world = new World();
-  world.set_name("earth");
 
 
   // в Core передаем объект мир
