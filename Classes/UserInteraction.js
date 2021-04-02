@@ -1,7 +1,7 @@
 
 class UserInteraction {
   //[0]left-37 [1]up-38 [2]right-39 [3]down-40 [4]space-32
-  static events=[0,0,0,0,0];
+  static events=[0,0,0,0,0];//почему static?
   constructor() {
 
   }
@@ -19,7 +19,7 @@ function handlerForDown(event){
         case 32:
             UserInteraction.events[4] = 32;
         break;
-        case 37:--
+        case 37:
             UserInteraction.events[0] = 37;
         break;
 

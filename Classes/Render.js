@@ -12,11 +12,19 @@ class Render {
     this.image.src = "Media/test.png";
   }
   handler(world, events){
-    this.drawObject(world.player);
+    this.ctx.clearRect(0,0, this.canvas.width, this.canvas.height);
+    this.drawObject(world.Player);
+    if(world.Bullet.IsAlive==true)
+    {
+      this.drawObject(world.Bullet);
+      if(world.Bullet.X>this.canvas.width)
+      {
+        world.Bullet.IsAlive=false;
+      }
+    }
   }
   drawObject(object)
   {
-    this.ctx.clearRect(0,0, this.canvas.width, this.canvas.height);
     this.ctx.drawImage(this.image, object.X, object.Y, object.Width, object.Height);
   }
 

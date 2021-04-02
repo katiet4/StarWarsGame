@@ -6,6 +6,7 @@ class Unit {
 #width;
 #height;
 #speed;
+#isAlive;
 
   constructor(value) {
     this.#x = value.x;
@@ -14,7 +15,18 @@ class Unit {
     this.#width = value.width;
     this.#height = value.height;
     this.#srcPath = value.srcPath;
+    this.#isAlive = value.isAlive;
   }
+  get IsAlive()
+  {
+     return this.#isAlive;
+  }
+
+  set IsAlive(value)
+  {
+    this.#isAlive = value;
+  }
+
   get Speed()
   {
      return this.#speed;

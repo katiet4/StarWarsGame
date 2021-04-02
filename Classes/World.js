@@ -1,14 +1,21 @@
 class World {
 
   #player;
+  #bullet;
 
   constructor() {
   }
-  set player(value){
+  set Player(value){
     this.#player = new Player(value);
   }
-  get player()
-  {
+  get Player(){
     return this.#player;
+  }
+
+  set Bullet(value){
+    this.#bullet = new Bullet(value);
+  }
+  get Bullet(){
+    return this.#bullet;
   }
 }
