@@ -27,15 +27,15 @@ class Core {
 
   // Цикл который все обрабатывает.
   game_loop(core){
-      core.#logic.handler(core.#world);
-      core.#physics.handler(core.#world);
-      core.#render.handler(core.#world);
-      core.#sound.handler(core.#world);
-      core.#ai.handler(core.#world);
-
-    // Получаем массив событий.
     let events = UserInteraction.handler();
     console.log(events);
+    core.#logic.handler(core.#world);
+    core.#physics.handler(core.#world);
+    core.#render.handler(core.#world, events);
+    core.#sound.handler(core.#world);
+    core.#ai.handler(core.#world);
+
+    // Получаем массив событий.
 
     // Вызываем функцию update
     update(events, core.#world);
