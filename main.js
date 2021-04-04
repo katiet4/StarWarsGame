@@ -6,7 +6,6 @@ function start(){
   let world = new World();
   world.Player = {x: 0, y: 0, name:'player', height: 40, width: 40, speed: 5};
   console.log(world.Player);
-  world.Bullet = {x: 0, y: 0, name:'bullet', height: 10, width: 20, speed: 6, isAlive: false};
   console.log(world.Bullet);
 
   // в Core передаем объект мир
@@ -40,14 +39,6 @@ function movePlayer(player, events)
 }
 
 function shoot(bullet, player, events){
-  console.log(bullet.IsAlive);
-  if(events[4]!=0&&bullet.IsAlive==false)
-  {
-    bullet.IsAlive=true;
-    bullet.X = player.X+player.Width - 5;
-    bullet.Y = player.Y+player.Height/2.5;
-
-  }
   if(bullet.IsAlive==true)
   {
     bullet.X += bullet.Speed;
@@ -56,5 +47,12 @@ function shoot(bullet, player, events){
 
 function update(events, world){
   movePlayer(world.Player, events);
-  shoot(world.Bullet, world.Player, events);
+  if(events[4]!=0){
+    world.Bullet = {x: world.Player.X+world.Player.Width - 5, y: world.Player.Y+world.Player.Height/2.5, name:'bullet', height: 10, width: 20, speed: 6, isAlive: true};
+  }
+  if(world.Bullet.length!=0){
+    for(let i = 0; i < world.Bullet.length; i++){
+      shoot(world.Bullet[i], world.Player, events);
+    }
+  }
 }

@@ -1,7 +1,7 @@
 class World {
 
   #player;
-  #bullet;
+  #bullet=[];
 
   constructor() {
   }
@@ -13,7 +13,7 @@ class World {
   }
 
   set Bullet(value){
-    this.#bullet = new Bullet(value);
+    this.#bullet.push(new Bullet(value));
   }
   get Bullet(){
     return this.#bullet;
