@@ -16,13 +16,12 @@ class Render
     this.ctx.clearRect(0,0, this.canvas.width, this.canvas.height);
     this.drawObject(world.Player);
 
-    if(world.Bullet.length!=0){
+    if(world.Bullet.length!=0){//если массив не пустой
         for(let i = 0; i < world.Bullet.length; i++){
-        this.drawObject(world.Bullet[i]);
-        if(world.Bullet[i].X>this.canvas.width){
-          world.Bullet[i].IsAlive=false;
+        this.drawObject(world.Bullet[i]);//нарисовать пулю
+        if(world.Bullet[i].X>this.canvas.width){//когда пуля улитела за границы canvas
           console.log(world.Bullet);
-          world.Bullet.splice(i,1);
+          world.Bullet.splice(i,1);//удалить из массива пулю
           console.log(world.Bullet);
         }
       }

@@ -38,21 +38,22 @@ function movePlayer(player, events)
 
 }
 
-function shoot(bullet, player, events){
-  if(bullet.IsAlive==true)
-  {
+//функция перемещения пули
+function shoot(bullet){
     bullet.X += bullet.Speed;
-  }
 }
 
 function update(events, world){
   movePlayer(world.Player, events);
+
+  //если нажали на пробел создать и добавить в массив объект пули
   if(events[4]!=0){
-    world.Bullet = {x: world.Player.X+world.Player.Width - 5, y: world.Player.Y+world.Player.Height/2.5, name:'bullet', height: 10, width: 20, speed: 6, isAlive: true};
+    world.Bullet = {x: world.Player.X+world.Player.Width - 5, y: world.Player.Y+world.Player.Height/2.5, name:'bullet', height: 10, width: 20, speed: 6};
   }
+  //если массив не пустой
   if(world.Bullet.length!=0){
-    for(let i = 0; i < world.Bullet.length; i++){
-      shoot(world.Bullet[i], world.Player, events);
+    for(let i = 0; i < world.Bullet.length; i++){//для  каждего элемента массива
+      shoot(world.Bullet[i]);//переместить пулю
     }
   }
 }
