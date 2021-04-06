@@ -24,7 +24,7 @@ class World {
     return this.#bullet;
   }
 
-  get Canvas(){
+  get canvas(){
     return this.#canvas;
   }
 

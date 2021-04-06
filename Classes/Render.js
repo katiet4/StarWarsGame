@@ -5,7 +5,7 @@ class Render
   {
   }
   handler(world, events){
-    world.ctx.clearRect(0,0, world.Canvas.style.width, world.Canvas.height);
+    world.ctx.clearRect(0,0, world.canvas.width, world.canvas.height);
 
     this.drawObject(world.Player, world);
 
