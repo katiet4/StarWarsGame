@@ -38,8 +38,8 @@ class Core {
 
     // Вызываем функцию update
     update(events, core.#world);
-    core.#render.handler(core.#world, events);//если рендер вызвать до update то ничего не работает т.к. массив создается в update а отрисовывается в render
-
+    console.log(core.#world);
+    core.#render.handler(core.#world, events);//если рендер вызвать до update то ничего не работает т.к. массив Bullet создается в update а отрисовывается в render
   }
 
   start_game(core){
