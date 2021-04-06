@@ -44,15 +44,16 @@ function shoot(bullet, player, events){
     bullet.X += bullet.Speed;
   }
 }
+function generatePlayerBullet(events, world, params){
+  if(events[4]!=0){
+    world.Bullet = params;
+  }
+}
 
 function update(events, world){
   movePlayer(world.Player, events);
+  generatePlayerBullet(events, world, {x: world.Player.X+world.Player.Width - 5, y: world.Player.Y+world.Player.Height/2.5, name:'bullet', height: 10, width: 20, speed: 6, isAlive: true});
   if(events[4]!=0){
     world.Bullet = {x: world.Player.X+world.Player.Width - 5, y: world.Player.Y+world.Player.Height/2.5, name:'bullet', height: 10, width: 20, speed: 6, isAlive: true};
-  }
-  if(world.Bullet.length!=0){
-    for(let i = 0; i < world.Bullet.length; i++){
-      shoot(world.Bullet[i], world.Player, events);
-    }
   }
 }
