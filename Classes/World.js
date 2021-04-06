@@ -9,8 +9,6 @@ class World {
   constructor() {
     this.#canvas = document.getElementById("game");
     this.#ctx = this.#canvas.getContext("2d");
-    console.log(this.#canvas.width+"   3241431241234");
-    console.log(this.#canvas.height+"   3241431241234");
   }
   set Player(value){
     this.#player = new Player(value);
@@ -37,7 +35,7 @@ class World {
     return this.#image;
   }
 
-  get Ctx(){
+  get ctx(){
     return this.#ctx;
   }
 }
