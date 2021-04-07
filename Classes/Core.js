@@ -18,9 +18,7 @@ class Core {
   }
 
   set world(world){
-
     this.#world = world;
-
   }
 
 
@@ -30,15 +28,14 @@ class Core {
     // Получаем массив событий.
     let events = UserInteraction.handler();
     console.log(events);
-    core.#logic.handler(core.#world);
+    core.#logic.handler(core.#world, events);
     core.#physics.handler(core.#world);
     core.#sound.handler(core.#world);
     core.#ai.handler(core.#world);
-
+    core.#render.handler(core.#world, events);
 
     // Вызываем функцию update
     update(events, core.#world);
-    core.#render.handler(core.#world, events);//если рендер вызвать до update то ничего не работает т.к. массив Bullet создается в update а отрисовывается в render
   }
 
   start_game(core){

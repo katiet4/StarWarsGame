@@ -6,9 +6,8 @@ function start(){
   let world = new World();
   world.Player = {x: 0, y: 0, name:'player', height: 40, width: 40, speed: 5};
 
-  world.Image = new Image(100,100);  
-  world.Image.src = "Media/test.png";
-  console.log(world.Image);
+  world.Image = new Image(100,100);
+  world.Image.src = "Media/test.png";//надо будет перенести это в Unit
 
   // в Core передаем объект мир
   let api = new EngineAPI();
@@ -16,7 +15,6 @@ function start(){
 
   // Запускаем ядро
   api.start_game();
-
 }
 
 function movePlayer(player, events)
@@ -37,22 +35,11 @@ function movePlayer(player, events)
   {
     player.Y += player.Speed;
   }
-
 }
 
 //функция перемещения пули
-function shoot(bullet){
-    bullet.X += bullet.Speed;
-}
+
 
 function update(events, world){
   movePlayer(world.Player, events);
-
-  //если нажали на пробел создать и добавить в массив объект пули
-  if(events[4]!=0){
-    world.Bullet = {x: world.Player.X+world.Player.Width - 5, y: world.Player.Y+world.Player.Height/2.5, name:'bullet', height: 10, width: 20, speed: 6};
   }
-  for(let i = 0; i < world.Bullet.length; i++){//для  каждего элемента массива
-    shoot(world.Bullet[i]);//переместить пулю
-  }
-}
