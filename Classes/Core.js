@@ -27,7 +27,7 @@ class Core {
   game_loop(core){
     // Получаем массив событий.
     let events = UserInteraction.handler();
-    console.log(events);
+    //console.log(events);
     core.#logic.handler(core.#world, events);
     core.#physics.handler(core.#world);
     core.#sound.handler(core.#world);

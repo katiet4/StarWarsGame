@@ -4,11 +4,12 @@ class World {
   #bullet=[];
   #canvas;
   #ctx;
-  #image;
+  #Interval = 350;
 
   constructor() {
     this.#canvas = document.getElementById("game");
     this.#ctx = this.#canvas.getContext("2d");
+    // this.#INTERVAL = 350;
   }
   set Player(value){
     this.#player = new Player(value);
@@ -18,7 +19,17 @@ class World {
   }
 
   set Bullet(value){
-    this.#bullet.push(new Bullet(value));
+    let spend;
+    if(this.#bullet.length!=0){
+      spend = value.date.getTime() - this.#bullet[this.#bullet.length-1].now.getTime();
+      if(spend>this.#Interval){
+        this.#bullet.push(new Bullet(value));
+        console.log(spend);
+      }
+    }
+    else{
+      this.#bullet.push(new Bullet(value));
+    }
   }
   get Bullet(){
     return this.#bullet;
@@ -28,12 +39,7 @@ class World {
     return this.#canvas;
   }
 
-  set Image(value){
-    this.#image = value;
-  }
-  get Image(){
-    return this.#image;
-  }
+
 
   get ctx(){
     return this.#ctx;

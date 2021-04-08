@@ -4,4 +4,5 @@ class Player extends Unit {
       super(value);
       this.#name = value.name;
     }
+
 }
