@@ -7,6 +7,7 @@ class Render
   handler(world, events){
     world.ctx.clearRect(0,0, world.canvas.width, world.canvas.height);
 
+    this.drawObject(world.Video, world);
     this.drawObject(world.Player, world);
 
     for(let i = 0; i < world.Bullet.length; i++){
@@ -20,6 +21,7 @@ class Render
   }
   drawObject(object, world)
   {
-    world.ctx.drawImage(object.Image, object.X, object.Y, object.Width, object.Height);
+  //  console.log(object);
+    world.ctx.drawImage(object.Graphics, object.X, object.Y, object.Width, object.Height);
   }
 }

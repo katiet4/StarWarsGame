@@ -6,7 +6,7 @@ class Unit {
 #width;
 #height;
 #speed;
-#image;
+#graphics;
 
   constructor(value) {
     this.#x = value.x;
@@ -15,15 +15,15 @@ class Unit {
     this.#width = value.width;
     this.#height = value.height;
     this.#srcPath = value.srcPath;
-    this.#image = new Image();
-    this.#image.src = this.#srcPath;
+    this.#graphics = new Image();
+    this.#graphics.src = this.#srcPath;
   }
 
-  set Image(value){
-    this.#image = value;
+  set Graphics(value){
+    this.#graphics = value;
   }
-  get Image(){
-    return this.#image;
+  get Graphics(){
+    return this.#graphics;
   }
 
   get Speed()
