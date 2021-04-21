@@ -5,7 +5,6 @@ class World {
   #canvas;
   #ctx;
   #Interval = 350;
-  // #video = document.createElement('video');
   #video;
 
   constructor() {
